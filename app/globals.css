@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  /* Deep Space Theme */
+  --background: #050505;
+  --foreground: #ededed;
+  
+  --primary: #00FF94;
+  --primary-foreground: #000000;
+  
+  --secondary: #FF0055;
+  --secondary-foreground: #ffffff;
+  
+  --surface: #111111;
+  --surface-border: #222222;
+  
+  --muted: #888888;
+  --accent: #00e5ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--surface-border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 255, 148, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 10%, rgba(255, 0, 85, 0.03) 0%, transparent 30%);
+}
