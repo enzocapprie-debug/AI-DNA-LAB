@@ -3,6 +3,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Send, Sparkles, User, StopCircle } from "lucide-react";
 import { AgentResponse } from "@/types/agent";
+import { ReplicatorInterface } from "@/components/agents/ReplicatorInterface";
+import { BinMasterInterface } from "@/components/agents/BinMasterInterface";
+import { MediaRipperInterface } from "@/components/agents/MediaRipperInterface";
 
 interface Message {
     role: 'user' | 'agent';
@@ -43,6 +46,12 @@ export function AgentChatWindow({ agentId }: { agentId: string }) {
                 response = `Scanning target vectors... Found 3 potential matches:\n\n1. **Adobe Creative Cloud** - 40% OFF (Student)\n2. **NordVPN** - 68% OFF (Limited)\n3. **VsCode Pro** - FREE (Always)\n\nShall I extract the coupon codes?`;
             } else if (agentId === 'seo_oracle') {
                 response = `Analysis Complete for query "${userMsg}".\n\n- **Score**: 85/100\n- **Issues**: Missing H1 tag on sub-pages.\n- **Opportunity**: Keyword "AI Tools" has high volume.\n\nRecommendation: Add semantic <article> tags.`;
+            } else if (agentId === 'replicator') {
+                response = `I am ready to clone. Please use the interface above to input your target URL. I will fetch the raw HTML, CSS, and Assets logic server-side.`;
+            } else if (agentId === 'binmaster') {
+                response = `Validator Module Loaded. I can generate validity-checked test numbers for development sandboxes using the Luhn Algorithm.`;
+            } else if (agentId === 'media_ripper') {
+                response = `Extractor Online. Feed me a URL and I will hunt for OpenGraph metadata and hidden stream links.`;
             }
 
             setMessages(prev => [...prev, { role: 'agent', content: response }]);
@@ -52,6 +61,24 @@ export function AgentChatWindow({ agentId }: { agentId: string }) {
 
     return (
         <div className="flex flex-col h-full bg-black/40">
+
+            {/* Special Interfaces */}
+            {agentId === 'replicator' && (
+                <div className="p-4 border-b border-surface-border bg-surface/30">
+                    <ReplicatorInterface />
+                </div>
+            )}
+            {agentId === 'binmaster' && (
+                <div className="p-4 border-b border-surface-border bg-surface/30">
+                    <BinMasterInterface />
+                </div>
+            )}
+            {agentId === 'media_ripper' && (
+                <div className="p-4 border-b border-surface-border bg-surface/30">
+                    <MediaRipperInterface />
+                </div>
+            )}
+
             {/* Messages Area */}
             <div className="flex-1 overflow-y-auto p-6 space-y-6" ref={scrollRef}>
                 {messages.map((msg, idx) => (
@@ -63,8 +90,8 @@ export function AgentChatWindow({ agentId }: { agentId: string }) {
                         )}
 
                         <div className={`max-w-[80%] rounded-2xl p-4 text-sm leading-relaxed whitespace-pre-wrap ${msg.role === 'user'
-                                ? 'bg-surface border border-surface-border text-foreground'
-                                : 'bg-primary/5 border border-primary/10 text-primary-foreground/90'
+                            ? 'bg-surface border border-surface-border text-foreground'
+                            : 'bg-primary/5 border border-primary/10 text-primary-foreground/90'
                             }`}>
                             {msg.content}
                         </div>

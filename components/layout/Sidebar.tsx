@@ -27,7 +27,7 @@ export function Sidebar() {
         <div className="flex flex-col h-screen w-64 bg-surface/50 border-r border-border backdrop-blur-xl fixed left-0 top-0 z-50">
             <div className="p-6">
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent pb-1">
-                    NEXUS AI
+                    AI DNA LAB
                 </h1>
                 <p className="text-xs text-muted uppercase tracking-widest">Agent Foundry</p>
             </div>

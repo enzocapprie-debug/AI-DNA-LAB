@@ -1,4 +1,4 @@
-export type AgentRole = 'generator' | 'analyzer' | 'scraper' | 'moderator';
+export type AgentRole = 'generator' | 'analyzer' | 'scraper' | 'moderator' | 'archiver';
 
 export interface AgentMemory {
     id: string;

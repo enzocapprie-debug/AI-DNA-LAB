@@ -1,10 +1,40 @@
 "use client";
 
 import Link from "next/link";
-import { Bot, Code, Globe, Search, Shield } from "lucide-react";
+import { Bot, Code, Globe, Search, Shield, Copy } from "lucide-react";
 
 export default function AgentsPage() {
     const agents = [
+        {
+            id: "replicator",
+            name: "The Replicator",
+            role: "Archiver",
+            desc: "Clones external websites (HTML/CSS) for analysis.",
+            icon: Copy,
+            color: "text-purple-400",
+            bg: "bg-purple-400/10",
+            status: "ONLINE"
+        },
+        {
+            id: "binmaster",
+            name: "BinMaster",
+            role: "Analyzer",
+            desc: "Luhn-Algorithm validator for generating dev-test payment data.",
+            icon: Code,
+            color: "text-red-400",
+            bg: "bg-red-400/10",
+            status: "ACTIVE"
+        },
+        {
+            id: "media_ripper",
+            name: "Media Ripper",
+            role: "Scraper",
+            desc: "Deep metadata extractor for video streams and social media content.",
+            icon: Globe,
+            color: "text-blue-500",
+            bg: "bg-blue-500/10",
+            status: "ONLINE"
+        },
         {
             id: "web_architect",
             name: "Web Architect v9",
